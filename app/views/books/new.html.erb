@@ -1,0 +1,14 @@
+<h1>Upload a Title</h1>
+
+<%= form_for @book do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+  <%= f.label :author %>
+  <%= f.text_field :author %><br />
+  <%= f.label :published_at, "Published at" %>
+  <%= f.date_field :published_at %><br / >
+  <%= f.label :synopsis %>
+  <%= f.text_area :synopsis %><br / >
+  <%= f.submit %>
+<% end %>

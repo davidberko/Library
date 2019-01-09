@@ -1,0 +1,33 @@
+<h1><%= @book.name %></h1>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Author
+        </th>
+        <th>
+          Published
+        </th>
+        <th>
+          Summary
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= @book.author %>
+        </td>
+        <td>
+          <%= @book.published_at %>
+        </td>
+        <td>
+          <%= @book.synopsis %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

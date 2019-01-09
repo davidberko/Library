@@ -1,0 +1,36 @@
+<h1>Welcome to the Library!</h1>
+
+<h2>Books to Check Out</h2>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Author
+        </th>
+        <th>
+          Published
+        </th>
+        <th>
+          Summary
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |b| %>
+      <%= link_to "check out", new_book_checkout_path(b) %>
+      <tr>
+        <td>
+          <%= b.author %>
+        </td>
+        <td>
+          <%= b.published_at %>
+        </td>
+        <td>
+          <%= b.synopsis %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
