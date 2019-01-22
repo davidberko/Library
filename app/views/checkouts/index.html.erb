@@ -1,0 +1,12 @@
+<h1>Hello, <%= current_user.full_name %></h1>
+
+<h2>Your Library</h2>
+
+<% @checkouts.each do |c| %>
+
+<div id="checkout_row">
+  <b><%= c.book.name %></b><br />
+  <%= "Due #{c.due_date}" %>
+  <%= link_to "return now", checkout_path(c.id), method: :delete %><br />
+</div>
+<% end %>

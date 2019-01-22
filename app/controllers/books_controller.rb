@@ -1,4 +1,8 @@
 class BooksController < ApplicationController
+
+  before_action :request # require_user will set the current_user in controllers
+  before_action :set_current_user
+
   def index
     @books = Book.all
   end
@@ -21,9 +25,14 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
   def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      redirect_to @book
+    end
   end
 
   def destroy
@@ -33,5 +42,5 @@ end
 private
 
 def book_params
-  params.require(:book).permit(:name, :author, :published_at, :synopsis, :user, :checkouts[])
+  params.require(:book).permit(:image, :name, :author, :published_at, :synopsis, :user, :copies)
 end
