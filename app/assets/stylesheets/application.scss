@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+
+@import "books";
+@import "checkouts";
+
+body {
+  background-color: #641808;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+/* Navigation */
+
+nav {
+  height: 120px;
+  width: 100%;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: black;
+  #link_div_container {
+    height: 100px;
+    #link_div {
+      display: inline-block;
+
+      a {
+        text-decoration: none;
+        font-size: 30px;
+        color: black;
+        text-align: center;
+
+      }
+      a:hover {
+        background-color: #D6D1D0;
+      }
+    }
+    .link1 {
+      border-width: thin;
+      border-style: groove;
+      border-color: black;
+    }
+    .logout {
+      float: right;
+    }
+  }
+}

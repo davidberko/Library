@@ -1,0 +1,32 @@
+
+<%= form_for @book do |f| %>
+ <div id="book_form_container">
+  <div id="form_field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <div id="form_field">
+    <%= f.label :name %>
+    <%= f.text_field :name %><br />
+  </div>
+  <div id="form_field">
+    <%= f.label :author %>
+    <%= f.text_field :author %><br />
+  </div>
+  <div id="form_field">
+    <%= f.label :published_at, "Published at" %>
+    <%= f.date_field :published_at %><br / >
+  </div>
+  <div id="form_field">
+    <%= f.label :copies, "Number of copies available" %>
+    <%= f.number_field :copies %><br />
+  </div>
+  <div id="form_field">
+    <%= f.label :synopsis %>
+    <%= f.text_area :synopsis %><br / >
+  </div>
+  <div id="submit_field">
+    <%= f.submit %>
+  </div>
+</div>
+<% end %>

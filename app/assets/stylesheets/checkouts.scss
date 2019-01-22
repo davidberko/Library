@@ -1,3 +1,14 @@
 // Place all the styles related to the checkouts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Index/User Checkouts */
+
+h2 {
+  color: #807B7A;
+  text-decoration: underline;
+}
+#checkout_row {
+  background-color: white;
+  padding: 10px;
+}

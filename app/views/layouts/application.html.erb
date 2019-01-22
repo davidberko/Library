@@ -9,10 +9,27 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <nav>
-    <% if user_signed_in? %>
-      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-      <% else %>
-      <%= link_to "Sign Up", new_user_registration_path %>
+    <div id="link_div_container">
+      <div id="link_div">
+        <%= link_to root_path do %>
+              <%= image_tag "LibraryLogo.png", style: "width: 120px; height: 120px;" %>
+        <% end %>
+      </div>
+
+      <% if user_signed_in? %>
+      <% current_user.checkouts.each do |c| %>
+        <div id="link_div" class="link1">
+          <%= link_to "Your Books", book_user_checkouts_path(c.book_id, c.user_id) %>
+        </div>
+        <div id="link_div" class="logout">
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+        </div>
+        <% end %>
+        <% else %>
+        <div id="link_div">
+          <%= link_to "Sign Up", new_user_registration_path %>
+        </div>
+      </div>
     <% end %>
   </nav>
 

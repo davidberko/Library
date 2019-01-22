@@ -1,11 +1,18 @@
-<h1>Welcome to the Library!</h1>
+<h1>Welcome</h1>
 
-<h2>Books to Check Out</h2>
+<h2>Catalogue</h2>
 
 <div>
   <table>
     <thead>
       <tr>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+          Title
+        </th>
         <th>
           Author
         </th>
@@ -22,8 +29,21 @@
     </thead>
     <tbody>
       <% @books.each do |b| %>
-      <%= link_to "check out", new_book_checkout_path(b) %>
+
       <tr>
+        <td>
+          <% if b.copies >= 1 %>
+            <button type="button" style="background-color: green;"><%= link_to "details", book_path(b) %>
+          <% else %>
+            <button type="button" style="background-color: red;"><%= link_to "details", book_path(b) %>
+          <% end %>
+        </td>
+        <td>
+          <%= image_tag(b.image.variant(resize: "200x100")) %>
+        </td>
+        <td>
+          <%= b.name %>
+        </td>
         <td>
           <%= b.author %>
         </td>
@@ -35,7 +55,7 @@
         </td>
 
         <td>
-          <%= b.checked_out? %>
+          <%= b.checked_out? %><b><%= " #{b.copies} left" %></b>
         </td>
       </tr>
       <% end %>
