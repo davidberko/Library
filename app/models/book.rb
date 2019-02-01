@@ -3,6 +3,10 @@ class Book < ApplicationRecord
   has_many :users, :through => :checkouts
   has_one_attached :image
 
+  def self.search(search)
+    where("name ILIKE ?", "%#{search}%")
+  end
+
   def checked_out?
     if self.copies >= 1
       print = "Still available"

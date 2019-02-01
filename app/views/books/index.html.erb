@@ -1,5 +1,9 @@
 <h1>Welcome</h1>
 
+<%= form_tag(books_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "search books"%>
+  <%= submit_tag "Search" %>
+<% end %>
 <h2>Catalogue</h2>
 
 <div>

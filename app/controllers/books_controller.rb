@@ -4,7 +4,11 @@ class BooksController < ApplicationController
   before_action :set_current_user
 
   def index
+    if params[:search]
+      @books = Book.search(params[:search])
+    else
     @books = Book.all
+    end
   end
 
   def show
