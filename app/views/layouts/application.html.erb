@@ -8,32 +8,36 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <nav>
-    <div id="link_div_container">
-      <div id="link_div">
-        <%= link_to root_path do %>
-              <%= image_tag "LibraryLogo.png", style: "width: 120px; height: 120px;" %>
-        <% end %>
-      </div>
 
-      <% if user_signed_in? %>
-      <% current_user.checkouts.each do |c| %>
-        <div id="link_div" class="link1">
-          <%= link_to "Your Books", book_user_checkouts_path(c.book_id, c.user_id) %>
-        </div>
-        <div id="link_div" class="logout">
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-        </div>
-        <% end %>
-        <% else %>
-        <div id="link_div">
-          <%= link_to "Sign Up", new_user_registration_path %>
-        </div>
-      </div>
+
+  <div class="nav-container">
+    <%= link_to root_path do %>
+          <%= image_tag "LibraryLogo.png", style: "width: 120px; height: 120px;", id: "logo" %>
     <% end %>
-  </nav>
+    <nav>
+      <ul id="link_list_container">
+
+
+        <% if user_signed_in? %>
+        <% current_user.checkouts.each do |c| %>
+          <li id="link_li" class="link1">
+            <%= link_to "Your Books", book_user_checkouts_path(c.book_id, c.user_id) %>
+          </li>
+          <li id="link_li" class="logout">
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+          </li>
+          <% end %>
+          <% else %>
+          <li id="link_li">
+            <%= link_to "Sign Up", new_user_registration_path %>or <%= link_to "Log in", user_session_path %>
+          </li>
+        </ul>
+      <% end %>
+    </nav>
+  </div>
 
   <body>
     <%= yield %>
   </body>
+  <div id="footer"><h3>DMB Web Development, All Rights Reserved © 2019</h3></div>
 </html>
