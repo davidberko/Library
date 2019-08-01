@@ -1,5 +1,5 @@
 <%= form_for([@book, @checkout], url: book_user_checkouts_path) do |f| %>
 <%= f.hidden_field :user_id %>
 <%= f.hidden_field :book_id %>
-<%= f.submit %>
+<%= f.submit "Confirm Checkout" %>
 <% end %>

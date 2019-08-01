@@ -20,10 +20,15 @@
       <tbody>
         <tr>
           <% if user_signed_in? && @book.copies >= 1 %>
+          <% if @book.chekr %>
+          <td>
+            Already checked out
+          </td>
+            <% else %>
           <td>
               <button type="button"><%= link_to "check out", new_book_user_checkout_path(@book.id, current_user.id) %></button>
-            <% end %>
           </td>
+          <% end %>
           <td>
             <%= @book.author %>
           </td>
@@ -35,10 +40,24 @@
           </td>
         </tr>
       </tbody>
+        <% else %>
+      <tbody>
+        <tr>
+           <td>
+          </td>
+          <td class="author_name">
+            <strong><%= @book.author %></strong>
+          </td>
+          <td>
+            <%= @book.published_at %>
+          </td>
+          <td>
+            <%= @book.synopsis %>
+          </td>
+        </tr>
+      </tbody>  
+      <% end %>
     </table>
 
   </div>
-  <script>
-    
-  </script>
 </body>

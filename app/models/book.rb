@@ -37,4 +37,12 @@ class Book < ApplicationRecord
     if Time.now >= self.due_date
     end
   end
+
+  def chekr 
+    if self.checkouts.where("user_id = 'current_user'")
+      print = "already checked out"
+    else
+      print = "Still available"
+    end
+  end
 end
